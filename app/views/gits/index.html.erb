@@ -1,0 +1,40 @@
+<style type="text/css" media="screen">
+  #repo-list{
+    margin-left:50px;
+
+  }
+
+  .repo-item{
+    padding:15px 10px;
+    border-bottom:dashed thin gray;
+    width:60%;
+  }
+
+  .repo-item:hover{
+    background-color:#EFFFFF;
+  }
+
+
+  .repo-item input{
+    color:#555555;
+    font-size:12px;
+    width:98%;
+    font-family:Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  }
+
+  .repo-desc{
+    color:#000000;
+  }
+  
+</style>
+
+<h2>geckos 的 git 仓库列表</h2>
+
+<div id="repo-list">
+<% @repos.each do |repo| %>
+    <div class="repo-item">
+        <input value="<%= repo['url'] %>" type="text" />
+        <div class="repo-desc"><%= repo['desc'] %></div>
+    </div>
+<% end %>
+</div>
