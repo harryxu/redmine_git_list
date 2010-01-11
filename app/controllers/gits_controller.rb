@@ -1,11 +1,17 @@
 class GitsController < ApplicationController
-   def index
+    def index
         @repos = []
         @user = 'git'
         @host = 'gks1.3322.org'
         @reposPath = '/home/git/repositories'
         traverse_dir(@reposPath, @repos)
     end
+
+    def all
+        
+    end
+
+    private
 
     def traverse_dir(file_path, list)
         if File.directory? file_path
@@ -14,8 +20,8 @@ class GitsController < ApplicationController
                     fullPath = file_path + '/' + file
 
                     if file!="." and file!=".." and File.directory? fullPath \
-                            and file != 'gitosis-admin.git'
-                        
+                        and file != 'gitosis-admin.git'
+
                         if /\.git$/.match(fullPath) != nil
                             list.push(createRepoInfo(fullPath))
                         else

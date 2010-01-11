@@ -5,4 +5,6 @@ Redmine::Plugin.register :redmine_git_list do
   author 'harry'
   description 'just for list git repos'
   version '0.0.1'
+
+  menu :top_menu, :gits, { :controller => 'gits', :action => 'index' }, :caption => 'Gits'
 end
